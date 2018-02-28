@@ -7,7 +7,6 @@ def main():
     print(repr(pad(unpadded, block_size)))
 
 
-
 def pad(unpadded, block_size):
     pad_length = block_size - len(unpadded) % block_size
     if pad_length == 0:

@@ -20,6 +20,9 @@ def aes_128_ecb_decrypt(cipher_text, key):
 def aes_128_ecb_encrypt(plain_text, key):
     plain_text = pad(plain_text, len(key))
     cipher = AES.new(key, AES.MODE_ECB)
+    remainder = len(plain_text) % 16
+    if remainder != 0:
+        plain_text = str(plain_text + bytearray([16-remainder])*(16-remainder))
     return cipher.encrypt(plain_text)
 
 
